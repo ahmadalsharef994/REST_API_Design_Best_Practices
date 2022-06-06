@@ -4,7 +4,7 @@
 
 - Endpoint paths:
     
-          **nouns** instead of verbs. For example: DELETE */v1/orders/:id &* POST */v1/users.*
+     **nouns** instead of verbs. For example: DELETE */v1/orders/:id &* POST */v1/users.*
     
      **kebab-case** instead of camelCase. For example: *email-verification, password-reset*.
     
@@ -16,7 +16,7 @@
     
                schema name —> UpperCamelCase
     
-               property name —> camelCase, e.g., *orderId*.
+               property name —> camelCase, e.g., orderId.
     
 - Files: *camelCaseNoun*.type.js. For example: *orders.controller.js,* *notifications.route.js*
 - Request Parameters: camelCase. For example: req.body.userName
