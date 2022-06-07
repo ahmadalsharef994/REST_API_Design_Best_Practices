@@ -75,4 +75,33 @@ else:
 ```
 
 > Don't forget to version the API like /v1/.
->
+
+### Response Data Object
+
+controller response is always named in **camel case**
+
+For Example, this is correct:
+
+```jsx
+const submitpayoutsdetails = catchAsync(async (req, res) => {
+const AuthData = await authService.getAuthById(req.SubjectId);
+const payOutDetails = await doctorprofileService.submitpayoutsdetails(req.body, AuthData);
+res.status(httpStatus.CREATED).json({
+message: 'Payouts Details Submitted!',
+payOutDetails: payOutDetails,
+});
+});
+```
+
+But this is NOT correct:
+
+```jsx
+const fetchpayoutsdetails = catchAsync(async (req, res) => {
+const AuthData = await authService.getAuthById(req.SubjectId);
+const payoutData = await doctorprofileService.fetchpayoutsdetails(AuthData);
+if (!payoutData) {
+throw new ApiError(httpStatus.BAD_REQUEST, 'Your OnBoarding is pending data submit');
+} else {
+res.status(httpStatus.OK).json({ 'Payout Details': payoutData });
+}
+```
