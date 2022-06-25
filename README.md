@@ -105,3 +105,50 @@ throw new ApiError(httpStatus.BAD_REQUEST, 'Your OnBoarding is pending data subm
 res.status(httpStatus.OK).json({ 'Payout Details': payoutData });
 }
 ```
+
+### Design patterns Notes:
+
+> Try to keep routes and controllers minimal.
+For example: instead of having 2 routes:
+route.get("get-appointments") and router.post("post-appointment")
+One is enough route.get("appointments") and router.post("appointments")
+> 
+
+> methods should start with a verb:
+Example: const upcomingAppointments --change to--> getUpcomingAppointments
+> 
+
+> fetch or get in naming??
+get is preferable. For example: getUserDetails NOT fetchUserDetails
+> 
+
+To Discuss: What do you think about assigning userObject with each request ???
+
+Always keep userId (the user who is requesting an API) in the models and send it with the requests.
+
+Always start your controller with calling authentication service and get requester authentication data:
+
+Something like:
+
+```jsx
+const AuthData = await authService.getAuthById(req.SubjectId);
+```
+
+```jsx
+In Mongoose: 
+use find and save or create and save instead of findandUpdate
+apply restrictions like:
+age {
+			min:1,
+			max: 100,
+			validate: { xxxxx }
+		},
+email {
+			minlength: 10,
+			lowercase: true,	
+},
+```
+
+[https://www.youtube.com/watch?v=D4Dja5WSZoA](https://www.youtube.com/watch?v=D4Dja5WSZoA)
+
+Delete and Update request should return the updated data.
