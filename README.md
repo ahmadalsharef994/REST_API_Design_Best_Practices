@@ -40,17 +40,17 @@ try {
   await call
   if (success) {
       res.status(httpStatus.OK)
-				 .json({
-			      message: xxxxxxxxxxxxxxx,
-						response,
-					});
+	.json({
+		message: xxxxxxxxxxxxxxx,
+		response,
+	});
 	}
 	else {
 		 res.status(httpStatus.OK)
-				.json({
-				message: xxxxxxxxxxxxxxx,
-				response,
-				});
+		.json({
+			message: xxxxxxxxxxxxxxx,
+			response,
+		});
 	}
 	catch (err) {
 		throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, due to error: ${err});
@@ -64,13 +64,13 @@ await call
 if (call success) :
 	res.status(httpStatus.OK)
 		 .json({
-					message: xxxxxxxxxxxxxxx,
-					response,
+			message: xxxxxxxxxxxxxxx,
+			response,
 			});
 else:
 	res.status(httpStatus.XXXXXXXX)
 		.json({
-					message: xxxxxxxxxxxxxxx
+			message: xxxxxxxxxxxxxxx
 		});
 ```
 
@@ -139,13 +139,13 @@ In Mongoose:
 use find and save or create and save instead of findandUpdate
 apply restrictions like:
 age {
-			min:1,
-			max: 100,
-			validate: { xxxxx }
-		},
+	min:1,
+	max: 100,
+	validate: { xxxxx }
+},
 email {
-			minlength: 10,
-			lowercase: true,	
+	minlength: 10,
+	lowercase: true,	
 },
 ```
 
