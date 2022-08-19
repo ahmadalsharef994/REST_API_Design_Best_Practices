@@ -128,7 +128,16 @@ data: payOutDetails,
 ```
 
 But this isn’t correct:
-
+```jsx
+const fetchpayoutsdetails = catchAsync(async (req, res) => {
+const AuthData = await authService.getAuthById(req.SubjectId);
+const payoutData = await doctorprofileService.fetchpayoutsdetails(AuthData);
+if (!payoutData) {
+throw new ApiError(httpStatus.BAD_REQUEST, 'Your OnBoarding is pending data submit');
+} else {
+res.status(httpStatus.OK).json({ 'Payout Details': payoutData });
+}
+```
 Always keep userId (the user who is requesting an API) in the models and send it with the requests.
 
 Always start your controller with calling authentication service and get requester authentication data:
